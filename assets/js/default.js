@@ -1,11 +1,39 @@
 'use strict';
-
   var toggles = document.querySelectorAll(".c-hamburger");
+  var nextArrow = document.getElementsByClassName("next");
+  var prevArrow = document.getElementsByClassName("previous");
+  var slides = document.querySelectorAll(".carousel-slide");
+  var slideIndex = 1;
+  var direction;
 
   for (let i = toggles.length - 1; i >= 0; i--) {
     var toggle = toggles[i];
     toggleHandler(toggle)
   };
+
+  showSlidesFromRight(slideIndex);
+
+  nextArrow[0].addEventListener('click', function() {
+    direction = 'next';
+    console.log('next Clicked');
+    showSlidesFromRight(slideIndex += 1);
+    for (var i = 0; i < slides.length; i ++) {
+      slides[i].classList.remove("fadeLeft");
+      slides[i].classList.remove("fadeRight");
+      slides[i].className += " fadeRight";
+    }
+  });
+
+  prevArrow[0].addEventListener('click', function() {
+    direction = 'previous';
+    console.log('previous Clicked');
+    showSlidesFromRight(slideIndex -= 1);
+    for (var i = 0; i < slides.length; i ++) {
+      slides[i].classList.remove("fadeLeft");
+      slides[i].classList.remove("fadeRight");
+      slides[i].className += " fadeLeft";
+    }
+  });
 
   function toggleHandler(toggle) {
     let overlay = document.getElementById("overlay");
@@ -24,19 +52,11 @@
 
   }
 
-  var slideIndex = 1;
-
-  showSlides(slideIndex);
-
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
   function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlidesFromRight(slideIndex = n);
   }
 
-  function showSlides(n) {
+  function showSlidesFromRight(n) {
     var slides = document.getElementsByClassName("carousel-slide");
     var dots = document.getElementsByClassName("dot");
 
@@ -56,7 +76,32 @@
       dots[i].className = dots[i].className.replace(" active", "");
     }
 
-    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex - 1].style.display = "block";
 
-    dots[slideIndex-1].className += " active";
+    dots[slideIndex - 1].className += " active";
+  }
+
+  function showSlidesFromLeft(n) {
+    var slides = document.getElementsByClassName("carousel-slide");
+    var dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex + 1].style.display = "block";
+
+    dots[slideIndex + 1].className += " active";
   }

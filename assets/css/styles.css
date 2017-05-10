@@ -177,17 +177,28 @@
   background-color: #717171; }
 
 /* Fading animation */
-.fade {
-  animation-name: fade;
+.fadeRight {
+  animation-name: fadeFromRight;
   animation-duration: 1.5s; }
 
-@keyframes fade {
+@keyframes fadeFromRight {
   from {
     top: 0;
     right: -200%; }
   to {
     top: 0;
     right: 0; } }
+.fadeLeft {
+  animation-name: fadeFromLeft;
+  animation-duration: 1.5s; }
+
+@keyframes fadeFromLeft {
+  from {
+    top: 0;
+    left: -200%; }
+  to {
+    top: 0;
+    left: 0; } }
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Larger than mobile */
