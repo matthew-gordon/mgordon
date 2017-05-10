@@ -20,10 +20,12 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 96px;
-  height: 96px;
+  width: 50px;
+  height: 50px;
   font-size: 0;
   text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   box-shadow: none;
   border-radius: none;
@@ -37,11 +39,11 @@
 .c-hamburger span {
   display: block;
   position: absolute;
-  top: 44px;
-  left: 18px;
-  right: 18px;
-  height: 8px;
-  background: white; }
+  top: 23px;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  background: #000; }
 
 .c-hamburger span::before,
 .c-hamburger span::after {
@@ -49,18 +51,18 @@
   display: block;
   left: 0;
   width: 100%;
-  height: 8px;
-  background-color: #fff;
+  height: 4px;
+  background-color: #000;
   content: ""; }
 
 .c-hamburger span::before {
-  top: -20px; }
+  top: -10px; }
 
 .c-hamburger span::after {
-  bottom: -20px; }
+  bottom: -10px; }
 
 .c-hamburger--htx {
-  background-color: #ff3264; }
+  background-color: white; }
 
 .c-hamburger--htx span {
   transition: background 0s 0.3s; }
@@ -78,7 +80,7 @@
 
 /* active state, i.e. menu open */
 .c-hamburger--htx.is-active {
-  background-color: #cb0032; }
+  background-color: #fff; }
 
 .c-hamburger--htx.is-active span {
   background: none; }

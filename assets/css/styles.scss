@@ -5,6 +5,13 @@
 /* Navigation
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+$button-width: 50px;                    // The width of the button area
+$button-height: 50px;                   // The height of the button area
+$bar-thickness: 4px;                    // The thickness of the button bars
+$button-pad: 8px;                      // The left/right padding between button area and bars.
+$button-bar-space: 6px;                // The spacing between button bars
+$button-transistion-duration: 0.3s;     // The transition duration
+
 .navbar {
   top: 0;
   z-index: 999;
@@ -23,16 +30,18 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 96px;
-  height: 96px;
+  width: $button-width;
+  height: $button-height;
   font-size: 0;
   text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   box-shadow: none;
   border-radius: none;
   border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background $button-transistion-duration;
 }
 
 .c-hamburger:focus {
@@ -42,11 +51,11 @@
 .c-hamburger span {
   display: block;
   position: absolute;
-  top: 44px;
-  left: 18px;
-  right: 18px;
-  height: 8px;
-  background: white;
+  top: ($button-height / 2) - ($bar-thickness / 2);
+  left: $button-pad;
+  right: $button-pad;
+  height: $bar-thickness;
+  background: #000;
 }
 
 .c-hamburger span::before,
@@ -55,31 +64,31 @@
   display: block;
   left: 0;
   width: 100%;
-  height: 8px;
-  background-color: #fff;
+  height: $bar-thickness;
+  background-color: #000;
   content: "";
 }
 
 .c-hamburger span::before {
-  top: -20px;
+  top: -$bar-thickness - $button-bar-space;
 }
 
 .c-hamburger span::after {
-  bottom: -20px;
+  bottom: -$bar-thickness - $button-bar-space;
 }
 
 .c-hamburger--htx {
-  background-color: #ff3264;
+  background-color: rgb(255,255,255);
 }
 
 .c-hamburger--htx span {
-  transition: background 0s 0.3s;
+  transition: background 0s $button-transistion-duration;
 }
 
 .c-hamburger--htx span::before,
 .c-hamburger--htx span::after {
-  transition-duration: 0.3s, 0.3s;
-  transition-delay: 0.3s, 0s;
+  transition-duration: $button-transistion-duration, $button-transistion-duration;
+  transition-delay: $button-transistion-duration, 0s;
 }
 
 .c-hamburger--htx span::before {
@@ -91,8 +100,9 @@
 }
 
 /* active state, i.e. menu open */
+
 .c-hamburger--htx.is-active {
-  background-color: #cb0032;
+  background-color: #fff;
 }
 
 .c-hamburger--htx.is-active span {
@@ -111,7 +121,7 @@
 
 .c-hamburger--htx.is-active span::before,
 .c-hamburger--htx.is-active span::after {
-  transition-delay: 0s, 0.3s;
+  transition-delay: 0s, $button-transistion-duration;
 }
 
 #overlay {
