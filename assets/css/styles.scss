@@ -114,6 +114,31 @@
   transition-delay: 0s, 0.3s;
 }
 
+#overlay {
+  opacity: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  transition-duration: 0.3s, 0.3s;
+
+  ul {
+    list-style: none;
+
+    li {
+      line-height: 3em;
+
+    }
+
+  }
+
+  span {
+    font-size: 2em;
+
+  }
+}
+
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 

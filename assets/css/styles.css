@@ -95,6 +95,21 @@
 .c-hamburger--htx.is-active span::after {
   transition-delay: 0s, 0.3s; }
 
+#overlay {
+  opacity: 0;
+  width: 100%;
+  background: white;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  transition-duration: 0.3s, 0.3s; }
+  #overlay ul {
+    list-style: none; }
+    #overlay ul li {
+      line-height: 3em; }
+  #overlay span {
+    font-size: 2em; }
+
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .flex {

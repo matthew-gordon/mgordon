@@ -8,10 +8,20 @@
   };
 
   function toggleHandler(toggle) {
+    let overlay = document.getElementById("overlay");
+
     toggle.addEventListener("click", function(e) {
       e.preventDefault();
+
+      (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '0' : overlay.style.zIndex = '989';
+
+      // toggle the overlay
+      (!this.classList.contains("is-active") === true) ? overlay.style.opacity = '1' : overlay.style.opacity = '0';
+
+      //toggle the menu icon
       (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
     });
+
   }
 
   var slideIndex = 1;
