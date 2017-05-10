@@ -4,9 +4,11 @@
   var prevArrow = document.getElementsByClassName("previous");
   var slides = document.querySelectorAll(".carousel-slide");
   var fpItems = document.getElementsByClassName("fp-item center");
+  var arrows = document.getElementsByClassName("arrows");
   var slideIndex = 1;
   var direction;
 
+  console.log(arrows);
   console.log(fpItems);
 
   for (let i = toggles.length - 1; i >= 0; i--) {
@@ -24,7 +26,7 @@
       slides[i].classList.remove("fadeLeft");
       slides[i].classList.remove("fadeRight");
       slides[i].className += " fadeRight";
-      fpItems[i].style.zIndex = 987;
+      fpItems[i].style.zIndex = 1000;
     }
   });
 
@@ -36,7 +38,7 @@
       slides[i].classList.remove("fadeLeft");
       slides[i].classList.remove("fadeRight");
       slides[i].className += " fadeLeft";
-      fpItems[i].style.zIndex = 987;
+      fpItems[i].style.zIndex = 1000;
     }
   });
 
