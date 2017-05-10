@@ -3,8 +3,11 @@
   var nextArrow = document.getElementsByClassName("next");
   var prevArrow = document.getElementsByClassName("previous");
   var slides = document.querySelectorAll(".carousel-slide");
+  var fpItems = document.getElementsByClassName("fp-item center");
   var slideIndex = 1;
   var direction;
+
+  console.log(fpItems);
 
   for (let i = toggles.length - 1; i >= 0; i--) {
     var toggle = toggles[i];
@@ -21,6 +24,7 @@
       slides[i].classList.remove("fadeLeft");
       slides[i].classList.remove("fadeRight");
       slides[i].className += " fadeRight";
+      fpItems[i].style.zIndex = 987;
     }
   });
 
@@ -32,6 +36,7 @@
       slides[i].classList.remove("fadeLeft");
       slides[i].classList.remove("fadeRight");
       slides[i].className += " fadeLeft";
+      fpItems[i].style.zIndex = 987;
     }
   });
 
@@ -58,7 +63,6 @@
   }
 
   function showSlidesFromRight(n) {
-    var slides = document.getElementsByClassName("carousel-slide");
     var dots = document.getElementsByClassName("dot");
 
     if (n > slides.length) {
