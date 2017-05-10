@@ -115,6 +115,19 @@ ul {
   #overlay span {
     font-size: 2em; }
 
+/* Elements
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button {
+  font-size: .75em;
+  margin: 5px;
+  height: 40px;
+  width: 200px;
+  border: 0;
+  background: #4cc1f3;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase; }
+
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .flex {
@@ -177,6 +190,9 @@ ul {
   border-radius: 50%;
   cursor: pointer;
   transition: .1s ease-in; }
+
+.dot:focus {
+  outline: none; }
 
 .active, .dot:hover {
   background-color: #717171; }

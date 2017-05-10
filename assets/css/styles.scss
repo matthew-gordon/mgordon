@@ -154,6 +154,21 @@ $button-transistion-duration: 0.3s;     // The transition duration
   }
 }
 
+/* Elements
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.button {
+  font-size: .75em;
+  margin: 5px;
+  height: 40px;
+  width: 200px;
+  border: 0;
+  background: #4cc1f3;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -228,6 +243,10 @@ $button-transistion-duration: 0.3s;     // The transition duration
   border-radius: 50%;
   cursor: pointer;
   transition: .1s ease-in;
+}
+
+.dot:focus {
+  outline: none;
 }
 
 .active, .dot:hover {
