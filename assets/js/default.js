@@ -8,15 +8,15 @@ var arrows = document.getElementsByClassName("arrows");
 var slideIndex = 1;
 var direction;
 
-console.log(arrows);
-console.log(fpItems);
-
 for (let i = toggles.length - 1; i >= 0; i--) {
   var toggle = toggles[i];
   toggleHandler(toggle)
 };
 
-showSlidesFromRight(slideIndex);
+window.onload = function() {
+  loadIndicators();
+  showSlidesFromRight(slideIndex);
+}
 
 nextArrow[0].addEventListener('click', function() {
   direction = 'next';
@@ -111,4 +111,18 @@ function showSlidesFromLeft(n) {
 
   slides[slideIndex + 1].style.display = "block";
   dots[slideIndex + 1].className += " active";
+}
+
+function loadIndicators() {
+  var count = 1;
+  var indicators = document.getElementsByClassName("indicators");
+
+  for (var i = 0; i < slides.length; i++) {
+    var indicator = document.createElement("span");
+
+    indicator.classList += "dot";
+    indicator.setAttribute("onclick", `currentSlide(${count})`);
+    indicators[0].appendChild(indicator);
+    count++;
+  }
 }
