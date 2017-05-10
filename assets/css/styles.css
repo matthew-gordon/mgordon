@@ -126,7 +126,11 @@ ul {
   background: #4cc1f3;
   border-radius: 5px;
   color: #fff;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  transition: background 0.2s ease; }
+
+.button:hover {
+  background: #34b9f1; }
 
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

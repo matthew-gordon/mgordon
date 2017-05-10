@@ -167,6 +167,11 @@ $button-transistion-duration: 0.3s;     // The transition duration
   border-radius: 5px;
   color: #fff;
   text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: darken(#4cc1f3, 5%);
 }
 
 /* Misc
