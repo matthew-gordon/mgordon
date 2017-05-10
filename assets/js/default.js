@@ -41,12 +41,13 @@
     toggle.addEventListener("click", function(e) {
       e.preventDefault();
 
+      // toggle layer on page
       (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '0' : overlay.style.zIndex = '989';
 
       // toggle the overlay
       (!this.classList.contains("is-active") === true) ? overlay.style.opacity = '1' : overlay.style.opacity = '0';
 
-      //toggle the menu icon
+      // toggle the menu icon
       (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
     });
 
@@ -70,6 +71,7 @@
 
     for (let i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
+      slides[i].className += " fadeRight"
     }
 
     for (let i = 0; i < dots.length; i++) {
@@ -102,6 +104,5 @@
     }
 
     slides[slideIndex + 1].style.display = "block";
-
     dots[slideIndex + 1].className += " active";
   }
