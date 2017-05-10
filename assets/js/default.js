@@ -26,7 +26,7 @@ nextArrow[0].addEventListener('click', function() {
     slides[i].classList.remove("fadeLeft");
     slides[i].classList.remove("fadeRight");
     slides[i].className += " fadeRight";
-    fpItems[i].style.zIndex = 1000;
+    fpItems[i].style.zIndex = 997;
   }
 });
 
@@ -38,7 +38,7 @@ prevArrow[0].addEventListener('click', function() {
     slides[i].classList.remove("fadeLeft");
     slides[i].classList.remove("fadeRight");
     slides[i].className += " fadeLeft";
-    fpItems[i].style.zIndex = 1000;
+    fpItems[i].style.zIndex = 997;
   }
 });
 
@@ -49,7 +49,7 @@ function toggleHandler(toggle) {
     e.preventDefault();
 
     // toggle layer on page
-    (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '0' : overlay.style.zIndex = '989';
+    (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '0' : overlay.style.zIndex = '998';
 
     // toggle the overlay
     (!this.classList.contains("is-active") === true) ? overlay.style.opacity = '1' : overlay.style.opacity = '0';

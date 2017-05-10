@@ -132,6 +132,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
   opacity: 0;
   width: 100%;
   background: rgba(255, 255, 255, 1);
+  // z-index: 999;
   height: 100vh;
   overflow: hidden;
   position: fixed;
