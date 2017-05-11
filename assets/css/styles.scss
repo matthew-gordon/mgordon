@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-ul {
-  padding: 0;
-}
-
 /* Navigation
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -139,19 +135,32 @@ $button-transistion-duration: 0.3s;     // The transition duration
   transition-duration: 0.3s, 0.3s;
 
   ul {
-    list-style: none;
+    padding: 0;
 
     li {
-      line-height: 3em;
+      position: relative;
+      left: -200%;
+      list-style: none;
+      opacity: 0;
+      line-height: 2em;
+      margin: 0;
+      padding: 0 0.5em;
+      overflow: hidden;
+      width: 10em;
+      transition: 1s ease;
+    }
 
+    li.show {
+      opacity: 1;
+      left: 0;
+    }
+
+    span {
+      font-size: 2em;
     }
 
   }
 
-  span {
-    font-size: 2em;
-
-  }
 }
 
 /* Elements
@@ -261,13 +270,13 @@ $button-transistion-duration: 0.3s;     // The transition duration
 /* Fading animation */
 .fadeRight {
   animation-name: fadeFromRight;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
 }
 
 @keyframes fadeFromRight {
   from {
     top: 0;
-    right: -200%;
+    right: -100%;
   }
   to {
     top: 0;
@@ -277,13 +286,13 @@ $button-transistion-duration: 0.3s;     // The transition duration
 
 .fadeLeft {
   animation-name: fadeFromLeft;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
 }
 
 @keyframes fadeFromLeft {
   from {
     top: 0;
-    left: -200%;
+    left: -100%;
   }
   to {
     top: 0;

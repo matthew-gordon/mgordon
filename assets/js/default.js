@@ -56,6 +56,15 @@ function toggleHandler(toggle) {
 
     // toggle the menu icon
     (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+
+    if (this.classList.contains("is-active") === true) {
+      loadMenuItem()
+    }
+    if (!this.classList.contains("is-active") === true) {
+      clearMenuItems()
+    }
+
+    // loadMenuItems();
   });
 
 }
@@ -125,4 +134,32 @@ function loadIndicators() {
     indicators[0].appendChild(indicator);
     count++;
   }
+}
+
+
+function loadMenuItem() {
+  var menuItems = document.getElementsByClassName("navItem");
+  var count = 0;
+  // for (var i = 0; i < menuItems.length; i++) {
+  //   console.log(menuItems[i]);
+  //   menuItems[i].className += " show";
+  // }
+  setInterval(function() {
+    if (count === menuItems.length) {
+      return count;
+    }
+    menuItems[count].className += " show";
+    count++
+  }, 100);
+
+}
+
+
+function clearMenuItems() {
+  var menuItems = document.getElementsByClassName("navItem");
+
+  for (var i = 0; i < menuItems.length; i++) {
+      menuItems[i].classList.remove("show");
+  }
+
 }
