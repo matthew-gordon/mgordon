@@ -142,11 +142,10 @@ $button-transistion-duration: 0.3s;     // The transition duration
       left: -200%;
       list-style: none;
       opacity: 0;
-      line-height: 2em;
+      line-height: 4.5em;
       margin: 0;
       padding: 0 0.5em;
       overflow: hidden;
-      width: 10em;
       transition: 1s ease;
     }
 
@@ -156,7 +155,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
     }
 
     span {
-      font-size: 2em;
+      font-size: 4em;
     }
 
   }
@@ -190,6 +189,18 @@ $button-transistion-duration: 0.3s;     // The transition duration
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.flex-icon {
+  position: relative;
+  opacity: 0;
+  bottom: -50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #00adff;
+  margin-top: 2rem;
+  transition: 1s ease;
 }
 
 .center {
@@ -342,4 +353,15 @@ $button-transistion-duration: 0.3s;     // The transition duration
   .active, .dot:hover {
     background-color: #717171;
   }
+
+  #overlay {
+    ul {
+      li {
+        span {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+
 }

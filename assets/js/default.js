@@ -57,9 +57,12 @@ function toggleHandler(toggle) {
     // toggle the menu icon
     (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
 
+    // load menu items
     if (this.classList.contains("is-active") === true) {
       loadMenuItem()
     }
+
+    // reset menu items
     if (!this.classList.contains("is-active") === true) {
       clearMenuItems()
     }
@@ -139,27 +142,30 @@ function loadIndicators() {
 
 function loadMenuItem() {
   var menuItems = document.getElementsByClassName("navItem");
+  var icons = document.getElementsByClassName("flex-icon");
   var count = 0;
-  // for (var i = 0; i < menuItems.length; i++) {
-  //   console.log(menuItems[i]);
-  //   menuItems[i].className += " show";
-  // }
+
   setInterval(function() {
     if (count === menuItems.length) {
-      return count;
+      return;
     }
     menuItems[count].className += " show";
     count++
   }, 100);
-
+  icons[0].style.opacity = 1;
+  icons[0].style.bottom = 0;
 }
 
 
 function clearMenuItems() {
   var menuItems = document.getElementsByClassName("navItem");
+  var icons = document.getElementsByClassName("flex-icon");
 
   for (var i = 0; i < menuItems.length; i++) {
       menuItems[i].classList.remove("show");
   }
+
+  icons[0].style.opacity = 0;
+  icons[0].style.bottom = "-50px";
 
 }
