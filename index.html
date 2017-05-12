@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>mgordon.co</title>
 
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/flickity.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
 
   </head>
   <body>
@@ -32,57 +33,40 @@
           <i class="fa fa-dribbble fa-2x" aria-hidden="true"></i>
         </div>
       </ul>
-    </div><!-- fp-container -->
+    </div>
 
     <section>
 
-      <!-- Carousel
-      ================================================ -->
-
-      <div class="carousel-container">
-
-        <div class="carousel-slide">
+      <div class="main-carousel" data-flickity>
+        <div class="carousel-cell">
           <div class="fp-container">
-            <div class="fp-item center">
+            <div class="fp-item">
               <h1>Matthew Gordon</h1>
-              <h2>Web Developer &amp; Designer</h2>
-            </div><!-- fp-item -->
-          </div><!-- fp-container -->
-        </div><!-- carousel-slide -->
-
-        <div class="carousel-slide">
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
           <div class="fp-container">
-            <div class="fp-item center">
-              <h1>Full Stack Application Development</h1>
-            </div><!-- fp-item -->
-          </div><!-- fp-container -->
-        </div><!-- carousel-slide -->
-
-        <div class="carousel-slide">
+            <div class="fp-item">
+              <h1>Matthew Gordon</h1>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell">
           <div class="fp-container">
-            <div class="fp-item center">
-              <h1>Web Design</h1>
-            </div><!-- fp-item -->
-          </div><!-- fp-container -->
-        </div><!-- carousel-slide -->
-
-        <div class="arrows">
-          <span class="previous">&#10094;</span>
-          <span class="next">&#10095;</span>
-        </div><!-- arrows -->
-
-        <div class="indicators flex">
-          <!-- <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span> -->
-        </div><!-- indicators -->
-
-      </div><!-- carousel-container -->
+            <div class="fp-item">
+              <h1>Matthew Gordon</h1>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </section>
 
     <footer></footer>
 
+    <script src="assets/js/flickity.min.js"></script>
+    <script src="assets/js/isotope.js"></script>
     <script src="assets/js/default.js"></script>
   </body>
 </html>
