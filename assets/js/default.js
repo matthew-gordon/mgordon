@@ -1,171 +1,175 @@
-'use strict';
-var toggles = document.querySelectorAll(".c-hamburger");
-var nextArrow = document.getElementsByClassName("next");
-var prevArrow = document.getElementsByClassName("previous");
-var slides = document.querySelectorAll(".carousel-slide");
-var fpItems = document.getElementsByClassName("fp-item center");
-var arrows = document.getElementsByClassName("arrows");
-var slideIndex = 1;
-var direction;
+(function() {
 
-for (let i = toggles.length - 1; i >= 0; i--) {
-  var toggle = toggles[i];
-  toggleHandler(toggle)
-};
+  'use strict';
+  var toggles = document.querySelectorAll(".c-hamburger");
+  var nextArrow = document.getElementsByClassName("next");
+  var prevArrow = document.getElementsByClassName("previous");
+  var slides = document.querySelectorAll(".carousel-slide");
+  var fpItems = document.getElementsByClassName("fp-item center");
+  var arrows = document.getElementsByClassName("arrows");
+  var slideIndex = 1;
+  var direction;
 
-window.onload = function() {
-  loadIndicators();
-  showSlidesFromRight(slideIndex);
-}
+  for (let i = toggles.length - 1; i >= 0; i--) {
+    var toggle = toggles[i];
+    toggleHandler(toggle)
+  };
 
-nextArrow[0].addEventListener('click', function() {
-  direction = 'next';
-  console.log('next Clicked');
-  showSlidesFromRight(slideIndex += 1);
-  for (var i = 0; i < slides.length; i ++) {
-    slides[i].classList.remove("fadeLeft");
-    slides[i].classList.remove("fadeRight");
-    slides[i].className += " fadeRight";
-    fpItems[i].style.zIndex = 997;
+  window.onload = function() {
+    loadIndicators();
+    showSlidesFromRight(slideIndex);
   }
-});
 
-prevArrow[0].addEventListener('click', function() {
-  direction = 'previous';
-  console.log('previous Clicked');
-  showSlidesFromRight(slideIndex -= 1);
-  for (var i = 0; i < slides.length; i ++) {
-    slides[i].classList.remove("fadeLeft");
-    slides[i].classList.remove("fadeRight");
-    slides[i].className += " fadeLeft";
-    fpItems[i].style.zIndex = 997;
-  }
-});
-
-function toggleHandler(toggle) {
-  let overlay = document.getElementById("overlay");
-
-  toggle.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    // toggle layer on page
-    (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '0' : overlay.style.zIndex = '998';
-
-    // toggle the overlay
-    (!this.classList.contains("is-active") === true) ? overlay.style.opacity = '1' : overlay.style.opacity = '0';
-
-    // toggle the menu icon
-    (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
-
-    // load menu items
-    if (this.classList.contains("is-active") === true) {
-      loadMenuItem()
+  nextArrow[0].addEventListener('click', function() {
+    direction = 'next';
+    console.log('next Clicked');
+    showSlidesFromRight(slideIndex += 1);
+    for (var i = 0; i < slides.length; i ++) {
+      slides[i].classList.remove("fadeLeft");
+      slides[i].classList.remove("fadeRight");
+      slides[i].className += " fadeRight";
+      fpItems[i].style.zIndex = 997;
     }
-
-    // reset menu items
-    if (!this.classList.contains("is-active") === true) {
-      clearMenuItems()
-    }
-
-    // loadMenuItems();
   });
 
-}
-
-function currentSlide(n) {
-  showSlidesFromRight(slideIndex = n);
-}
-
-function showSlidesFromRight(n) {
-  var dots = document.getElementsByClassName("dot");
-
-  if (n > slides.length) {
-    slideIndex = 1
-  }
-
-  if (n < 1) {
-    slideIndex = slides.length
-  }
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-    slides[i].className += " fadeRight"
-  }
-
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-
-  slides[slideIndex - 1].style.display = "block";
-
-  dots[slideIndex - 1].className += " active";
-}
-
-function showSlidesFromLeft(n) {
-  var slides = document.getElementsByClassName("carousel-slide");
-  var dots = document.getElementsByClassName("dot");
-
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-
-  slides[slideIndex + 1].style.display = "block";
-  dots[slideIndex + 1].className += " active";
-}
-
-function loadIndicators() {
-  var count = 1;
-  var indicators = document.getElementsByClassName("indicators");
-
-  for (var i = 0; i < slides.length; i++) {
-    var indicator = document.createElement("span");
-
-    indicator.classList += "dot";
-    indicator.setAttribute("onclick", `currentSlide(${count})`);
-    indicators[0].appendChild(indicator);
-    count++;
-  }
-}
-
-
-function loadMenuItem() {
-  var menuItems = document.getElementsByClassName("navItem");
-  var icons = document.getElementsByClassName("flex-icon");
-  var count = 0;
-
-  setInterval(function() {
-    if (count === menuItems.length) {
-      return;
+  prevArrow[0].addEventListener('click', function() {
+    direction = 'previous';
+    console.log('previous Clicked');
+    showSlidesFromRight(slideIndex -= 1);
+    for (var i = 0; i < slides.length; i ++) {
+      slides[i].classList.remove("fadeLeft");
+      slides[i].classList.remove("fadeRight");
+      slides[i].className += " fadeLeft";
+      fpItems[i].style.zIndex = 997;
     }
-    menuItems[count].className += " show";
-    count++
-  }, 100);
-  icons[0].style.opacity = 1;
-  icons[0].style.bottom = 0;
-}
+  });
 
+  function toggleHandler(toggle) {
+    let overlay = document.getElementById("overlay");
 
-function clearMenuItems() {
-  var menuItems = document.getElementsByClassName("navItem");
-  var icons = document.getElementsByClassName("flex-icon");
+    toggle.addEventListener("click", function(e) {
+      e.preventDefault();
 
-  for (var i = 0; i < menuItems.length; i++) {
-      menuItems[i].classList.remove("show");
+      // toggle layer on page
+      (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '0' : overlay.style.zIndex = '998';
+
+      // toggle the overlay
+      (!this.classList.contains("is-active") === true) ? overlay.style.opacity = '1' : overlay.style.opacity = '0';
+
+      // toggle the menu icon
+      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+
+      // load menu items
+      if (this.classList.contains("is-active") === true) {
+        loadMenuItem()
+      }
+
+      // reset menu items
+      if (!this.classList.contains("is-active") === true) {
+        clearMenuItems()
+      }
+
+      // loadMenuItems();
+    });
+
   }
 
-  icons[0].style.opacity = 0;
-  icons[0].style.bottom = "-50px";
+  function currentSlide(n) {
+    showSlidesFromRight(slideIndex = n);
+  }
 
-}
+  function showSlidesFromRight(n) {
+    var dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      slides[i].className += " fadeRight"
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+
+    dots[slideIndex - 1].className += " active";
+  }
+
+  function showSlidesFromLeft(n) {
+    var slides = document.getElementsByClassName("carousel-slide");
+    var dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex + 1].style.display = "block";
+    dots[slideIndex + 1].className += " active";
+  }
+
+  function loadIndicators() {
+    var count = 1;
+    var indicators = document.getElementsByClassName("indicators");
+
+    for (var i = 0; i < slides.length; i++) {
+      var indicator = document.createElement("span");
+
+      indicator.classList += "dot";
+      indicator.setAttribute("onclick", `currentSlide(${count})`);
+      indicators[0].appendChild(indicator);
+      count++;
+    }
+  }
+
+
+  function loadMenuItem() {
+    var menuItems = document.getElementsByClassName("navItem");
+    var icons = document.getElementsByClassName("flex-icon");
+    var count = 0;
+
+    setInterval(function() {
+      if (count === menuItems.length) {
+        return;
+      }
+      menuItems[count].className += " show";
+      count++
+    }, 100);
+    icons[0].style.opacity = 1;
+    icons[0].style.bottom = 0;
+  }
+
+
+  function clearMenuItems() {
+    var menuItems = document.getElementsByClassName("navItem");
+    var icons = document.getElementsByClassName("flex-icon");
+
+    for (var i = 0; i < menuItems.length; i++) {
+      menuItems[i].classList.remove("show");
+    }
+
+    icons[0].style.opacity = 0;
+    icons[0].style.bottom = "-50px";
+
+  }
+
+}());
