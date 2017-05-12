@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="portfolio">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,9 +13,34 @@
   </head>
   <body>
 
-    <h1 class="center">Portfolio</h1>
+    <nav class="navbar nav">
+      <button  id="toggle" class="c-hamburger c-hamburger--htx">
+        <span>toggle menu</span>
+      </button>
+    </nav>
+
+    <div id="overlay" class="fp-container center">
+      <ul class="fp-item fadeNav" id="list">
+        <li id="navItem1" class="navItem"><span><a href="index.html">Home</a></span></li>
+        <li id="navItem2" class="navItem"><span>Services</span></li>
+        <li id="navItem3" class="navItem"><span><a href="portfolio.html">Portfolio</a></span></li>
+        <li id="navItem4" class="navItem"><span>About</span></li>
+        <li id="navItem5" class="navItem"><span>Contact</span></li>
+
+        <div class="flex-icon">
+          <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-dribbble fa-2x" aria-hidden="true"></i>
+        </div>
+      </ul>
+    </div>
+
     <section class="fp-container">
         <div class="container">
+          <div class="header">
+            <h1>Portfolio</h1>
+            <p>Chillwave bicycle rights 3 wolf moon, freegan synth meh cronut edison bulb fingerstache you probably haven't heard of them polaroid try-hard kale chips. Succulents wayfarers bitters, microdosing single-origin coffee art party semiotics. Mixtape pork belly selvage lo-fi, meditation tumblr lumbersexual stumptown pinterest ethical mumblecore jianbing four loko farm-to-table austin. PBR&B austin pitchfork fixie air plant, small batch hot chicken. Meh man bun thundercats kickstarter bitters enamel pin dreamcatcher, vegan crucifix XOXO kombucha freegan bicycle rights polaroid single-origin coffee. Williamsburg air plant raw denim unicorn green juice keffiyeh, echo park quinoa tacos truffaut XOXO woke retro enamel pin chambray. Kinfolk swag offal tumeric.</p>
+          </div>
 
           <div class="button-group filters-button-group">
             <button class="button is-checked" data-filter="*">show all</button>
@@ -25,19 +50,13 @@
 
           <div class="grid">
             <div class="grid-item brett">
-              <div class="">
                 <img src="http://placehold.it/300x300" alt="">
-              </div>
             </div>
             <div class="grid-item lucy">
-              <div class="">
                 <img src="http://placehold.it/300x300" alt="">
-              </div>
             </div>
             <div class="grid-item lucy">
-              <div class="">
                 <img src="http://placehold.it/300x300" alt="">
-              </div>
             </div>
           </div>
 
@@ -46,11 +65,8 @@
 
     <footer></footer>
 
-
-
-    <script src="assets/js/flickity.min.js"></script>
+    <script src="assets/js/default.js"></script>
     <script src="assets/js/isotope.js"></script>
-    <!-- <script src="assets/js/default.js"></script> -->
     <script src="assets/js/portfolio.js"></script>
   </body>
 </html>

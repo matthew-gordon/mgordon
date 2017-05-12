@@ -1,77 +1,66 @@
-var flkty = new Flickity( '.main-carousel', {
-  cellAlign: 'left',
-  contain: true
-});
+'use strict';
 
-(function() {
-  'use strict';
+var toggles = document.querySelectorAll(".c-hamburger");
 
-  var toggles = document.querySelectorAll(".c-hamburger");
+for (let i = toggles.length - 1; i >= 0; i--) {
+  var toggle = toggles[i];
+  toggleHandler(toggle)
+};
 
+function toggleHandler(toggle) {
+  let overlay = document.getElementById("overlay");
 
-  console.log(flkty);
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
 
-  for (let i = toggles.length - 1; i >= 0; i--) {
-    var toggle = toggles[i];
-    toggleHandler(toggle)
-  };
+    // toggle layer on page
+    (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '-1' : overlay.style.zIndex = '998';
 
-  function toggleHandler(toggle) {
-    let overlay = document.getElementById("overlay");
+    // toggle the overlay
+    (!this.classList.contains("is-active") === true) ? overlay.style.opacity = '1' : overlay.style.opacity = '0';
 
-    toggle.addEventListener("click", function(e) {
-      e.preventDefault();
+    // toggle the menu icon
+    (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
 
-      // toggle layer on page
-      (this.classList.contains("is-active") === true) ? overlay.style.zIndex = '0' : overlay.style.zIndex = '998';
-
-      // toggle the overlay
-      (!this.classList.contains("is-active") === true) ? overlay.style.opacity = '1' : overlay.style.opacity = '0';
-
-      // toggle the menu icon
-      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
-
-      // load menu items
-      if (this.classList.contains("is-active") === true) {
-        loadMenuItem()
-      }
-
-      // reset menu items
-      if (!this.classList.contains("is-active") === true) {
-        clearMenuItems()
-      }
-
-    });
-
-  }
-
-  function loadMenuItem() {
-    var menuItems = document.getElementsByClassName("navItem");
-    var icons = document.getElementsByClassName("flex-icon");
-    var count = 0;
-
-    setInterval(function() {
-      if (count === menuItems.length) {
-        return;
-      }
-      menuItems[count].className += " show";
-      count++
-    }, 100);
-    icons[0].style.opacity = 1;
-    icons[0].style.bottom = 0;
-  }
-
-  function clearMenuItems() {
-    var menuItems = document.getElementsByClassName("navItem");
-    var icons = document.getElementsByClassName("flex-icon");
-
-    for (var i = 0; i < menuItems.length; i++) {
-      menuItems[i].classList.remove("show");
+    // load menu items
+    if (this.classList.contains("is-active") === true) {
+      loadMenuItem()
     }
 
-    icons[0].style.opacity = 0;
-    icons[0].style.bottom = "-50px";
+    // reset menu items
+    if (!this.classList.contains("is-active") === true) {
+      clearMenuItems()
+    }
 
+  });
+
+}
+
+function loadMenuItem() {
+  var menuItems = document.getElementsByClassName("navItem");
+  var icons = document.getElementsByClassName("flex-icon");
+  var count = 0;
+
+  setInterval(function() {
+    if (count === menuItems.length) {
+      return;
+    }
+    menuItems[count].className += " show";
+    count++
+  }, 100);
+  icons[0].style.opacity = 1;
+  icons[0].style.bottom = 0;
+}
+
+function clearMenuItems() {
+  var menuItems = document.getElementsByClassName("navItem");
+  var icons = document.getElementsByClassName("flex-icon");
+
+  for (var i = 0; i < menuItems.length; i++) {
+    menuItems[i].classList.remove("show");
   }
 
-}());
+  icons[0].style.opacity = 0;
+  icons[0].style.bottom = "-50px";
+
+}
