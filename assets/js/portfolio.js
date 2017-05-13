@@ -2,7 +2,7 @@
 
 var iso = new Isotope( '.grid', {
   itemSelector: '.grid-item',
-  layoutMode: 'fitRows'
+  layoutMode: 'fitRows',
 });
 
 // bind filter button click

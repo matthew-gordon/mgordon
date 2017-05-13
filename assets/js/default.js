@@ -2,6 +2,16 @@
 
 var toggles = document.querySelectorAll(".c-hamburger");
 
+var card = document.getElementsByClassName("ItemCard__thumb");
+console.log(card);
+
+for (var i = 0; i < card.length; i++) {
+//   setInterval(function() {
+//     card.item(i).style.opacity = "1";
+//   }, 1000);
+  card[i].style.opacity = "1";
+}
+
 for (let i = toggles.length - 1; i >= 0; i--) {
   var toggle = toggles[i];
   toggleHandler(toggle)
